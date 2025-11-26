@@ -1,4 +1,5 @@
 const Button = (props) => {
+  console.log('props', props)
   const buttonClasses =
     props.buttonType === "outline"
       ? "text-dark border border-dark bg-transparent px-5 py-3 fw-semibold fs-5"

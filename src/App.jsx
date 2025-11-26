@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import NewArrivals from "./components/NewArrivals";
+import ShopByCategory from "./components/ShopByCategory";
 import StateButton from "./components/StateButton";
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <NewArrivals />
+      <ShopByCategory/>
     </>
   );
 };

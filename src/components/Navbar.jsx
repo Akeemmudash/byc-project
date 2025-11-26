@@ -4,24 +4,34 @@ import heartIcon from "../assets/icons/heart.png";
 import profileIcon from "../assets/icons/profile.png";
 import cartIcon from "../assets/icons/cart.png";
 
-const InputField = () => {
+const InputField = ({ searchValue, setSearchValue }) => {
   return (
-    <div className="searchBar">
+    <form className="searchBar">
       <input
+        value={searchValue}
+        onChange={(event) => {
+          setSearchValue(event.target.value);
+        }}
         type="search"
         className="border-0 outline-0"
         placeholder="Search products"
       />
-      <button className="btn">
+      <button
+        className="btn"
+        onClick={(e) => {
+          e.preventDefault();
+          alert(searchValue);
+        }}
+      >
         <img src={searchIcon} alt="" />
       </button>
-    </div>
+    </form>
   );
 };
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
-
+  const [searchValue, setSearchValue] = useState("");
   return (
     <nav>
       <div className="container">
@@ -40,7 +50,10 @@ const Navbar = () => {
             </div>
             <div className="center_item">
               {showSearch ? (
-                <InputField />
+                <InputField
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
+                />
               ) : (
                 <img
                   src="/logo.png"
